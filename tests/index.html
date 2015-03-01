@@ -9,17 +9,43 @@
 <div id="qunit"></div>
 <div id="qunit-fixture"></div>
 <script src="../src/compare-data-structure.js"></script>
-<script src="//code.jquery.com/qunit/qunit-1.17.1.js"></script>
+<script src="../vendor/qunit-1.17.1.js"></script>
 <script>
-    QUnit.test( "basic", function( assert ) {
+    (function () {
+        var basicDataProvide = [
+            [1, "number"],
+            ["Alex", "string"],
+            [3, "number|string"],
+            [{}, "object"],
+            [
+                {
+                    "id": 1
+                },
+                {
+                    "object": {
+                        "id": "number"
+                    }
+                }
+            ],
+            [
+                [1, 2, 3],
+                {
+                    "array": "number"
+                }
+            ]
+        ];
 
-        assert.equal( CDS.check(1, "number"), true, "we expect number" );
+        QUnit.test( "basic", function( assert ) {
 
-        assert.equal( CDS.check("Alex", "string"), true, "we expect string" );
+            for (var index in basicDataProvide) {
+                var diff = CDS.check.apply(null, basicDataProvide[index]);
 
-        assert.equal( CDS.check(3, "number|string"), true, "we expect number or string" );
+                assert.ok( diff.isEqual(), diff.getMessage() );
+            }
 
-    });
+        });
+
+    })();
 </script>
 </body>
 </html>
