@@ -32,6 +32,12 @@
                 {
                     "array": "number"
                 }
+            ],
+            [
+                "GitHub",
+                {
+                    "set": ["GitHub", "LinkedIn"]
+                }
             ]
         ];
 
@@ -50,6 +56,12 @@
                 data: 1,
                 structure: "string",
                 message: "given: 'number' instead of: 'string'"
+            }, {
+                data: "Facebook",
+                structure: {
+                    "set": ["GitHub", "LinkedIn"]
+                },
+                message: "value: 'Facebook' out of set: 'GitHub,LinkedIn'"
             }
         ];
 

@@ -1,8 +1,12 @@
 (function(window) {
 
-    var ErrorMessage = {
+    var DiffMessage = {
         type: function(given, types) {
             return "given: '" + given + "' instead of: '" + types + "'";
+        },
+
+        set: function(data, set) {
+            return "value: '" + data + "' out of set: '" + set.join() + "'";
         }
     };
 
@@ -42,6 +46,12 @@
 
                     }
                 }
+
+            } else if (structure["set"]) {
+
+                if (structure["set"].indexOf(data) === -1) {
+                    return new Result(false, DiffMessage.set(data, structure["set"]))
+                }
             }
 
         },
@@ -53,7 +63,7 @@
                 var dataType = typeof data;
 
                 if (structure.split('|').indexOf(dataType) === -1) {
-                    return new Result(false, ErrorMessage.type(dataType, structure));
+                    return new Result(false, DiffMessage.type(dataType, structure));
                 }
 
             } else if (typeof structure === "object") {
