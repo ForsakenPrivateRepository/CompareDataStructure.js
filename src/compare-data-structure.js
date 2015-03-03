@@ -1,5 +1,11 @@
 (function(window) {
 
+    var ErrorMessage = {
+        type: function(given, types) {
+            return "given: '" + given + "' instead of: '" + types + "'";
+        }
+    };
+
     function Result(equal, message) {
 
         this.isEqual = function() {
@@ -44,8 +50,10 @@
 
             if (typeof structure === "string") {
 
-                if (structure.split('|').indexOf(typeof data) === -1) {
-                    return new Result(false);
+                var dataType = typeof data;
+
+                if (structure.split('|').indexOf(dataType) === -1) {
+                    return new Result(false, ErrorMessage.type(dataType, structure));
                 }
 
             } else if (typeof structure === "object") {

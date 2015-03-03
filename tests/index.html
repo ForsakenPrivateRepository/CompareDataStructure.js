@@ -45,6 +45,27 @@
 
         });
 
+        var diffDataProvider = [
+            {
+                data: 1,
+                structure: "string",
+                message: "given: 'number' instead of: 'string'"
+            }
+        ];
+
+        QUnit.test("diff", function( assert ) {
+
+            for (var index in diffDataProvider) {
+                var provider = diffDataProvider[index];
+
+                var diff = CDS.check(provider.data, provider.structure);
+
+                assert.equal(diff.isEqual(), false);
+                assert.equal(diff.getMessage(), provider.message);
+            }
+
+        });
+
     })();
 </script>
 </body>
