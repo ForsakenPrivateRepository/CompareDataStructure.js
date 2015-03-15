@@ -22,6 +22,8 @@
 
     }
 
+    Result.CONFIG = 'undefined structure';
+
     var container = {
         custom: {},
         temporary: {},
@@ -101,11 +103,17 @@
 
         compare: function(data, structure) {
 
-            if (typeof structure === "string") {
-                return this.types(data, structure);
-            } else if (typeof structure === "object") {
-                return this.structure(data, structure);
+            if (structure) {
+                if (typeof structure === "string") {
+                    return this.types(data, structure);
+                }
+
+                if (typeof structure === "object") {
+                    return this.structure(data, structure);
+                }
             }
+
+            return new Result(false, Result.CONFIG);
         },
 
         process: function(data, structure, custom) {
@@ -117,6 +125,10 @@
     };
 
     window.CDS = {
+
+        errors: {
+            config: Result.CONFIG
+        },
 
         /**
          * @param data
