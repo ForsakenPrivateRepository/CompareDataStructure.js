@@ -91,6 +91,49 @@
                     }
                 }
             }
+        ],
+        [
+            [
+                {
+                    "id": 1,
+                    "children": false
+                },
+                {
+                    "id": 1,
+                    "children": {
+                        "id": 3,
+                        "children": []
+                    }
+                },
+                {
+                    "id": 1,
+                    "children": {
+                        "id": 3,
+                        "children": [
+                            {
+                                "id": 5,
+                                "children": true
+                            },
+                            {
+                                "id": 7,
+                                "children": false
+                            }
+                        ]
+                    }
+                }
+            ],
+            "Children",
+            {
+                "Tree": {
+                    "object": {
+                        "id": "number",
+                        "children": "Children|Tree|boolean"
+                    }
+                },
+                "Children": {
+                    "array": "Tree"
+                }
+            }
         ]
     ];
 
