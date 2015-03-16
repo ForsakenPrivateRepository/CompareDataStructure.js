@@ -40,6 +40,57 @@
                     }
                 }
             }
+        ],
+        [
+            [
+                {
+                    "model": "A8",
+                    "trademark": "Audi",
+                    "class": "Premium",
+                    "country": {
+                        "name": "Deutschland"
+                    }
+                },
+                {
+                    "model": 80,
+                    "trademark": "Audi",
+                    "class": "Premium",
+                    "country": {
+                        "name": "Deutschland"
+                    }
+                }, {
+                    "author": "Достоевский Фёдор Михайлович",
+                    "title": "Преступление и наказание"
+                },
+                {
+                    "author": "Steve McConnell",
+                    "title": "Code Complete"
+                }
+            ],
+            {
+                "array": "Book|Car"
+            },
+            {
+                "Car": {
+                    "object": {
+                        "model": "string|number",
+                        "trademark": "string",
+                        "class": "string",
+                        "country": "Country"
+                    }
+                },
+                "Book": {
+                    "object": {
+                        "author": "string",
+                        "title": "string"
+                    }
+                },
+                "Country": {
+                    "object": {
+                        "name": "string"
+                    }
+                }
+            }
         ]
     ];
 
