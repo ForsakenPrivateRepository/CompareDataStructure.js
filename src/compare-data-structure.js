@@ -92,7 +92,7 @@
 
             if (container.exist()) {
                 var intersect = container.get(types);
-                
+
                 if (intersect) {
                     for (var index in intersect) {
                         if (this.compare(data, intersect[index])) continue;
