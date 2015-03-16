@@ -25,16 +25,27 @@
     Result.CONFIG = 'undefined structure';
 
     var container = {
-        custom: {},
-        temporary: {},
+        custom: null,
+        temporary: null,
         set: function(custom) {
             /**
              * TODO: need merge custom with existed to temporary
              */
-            this.temporary = custom;
+            this.temporary = (this.custom || custom) ? custom : null;
         },
-        get: function(key) {
-            return this.temporary && this.temporary[key];
+        get: function(types) {
+            var custom, result = [];
+
+            for (var index in types) {
+                if (custom = this.temporary[types[index]]) {
+                    result.push(custom);
+                }
+            }
+
+            if (result.length) return result;
+        },
+        exist: function() {
+            return this.temporary;
         }
     };
 
@@ -79,21 +90,15 @@
 
             if (types.indexOf(dataType) !== -1) return false;
 
-            var intersect = [];
+            if (container.exist()) {
+                var intersect = container.get(types);
+                
+                if (intersect) {
+                    for (var index in intersect) {
+                        if (this.compare(data, intersect[index])) continue;
 
-            for (var index in types) {
-                var custom = container.get(types[index]);
-
-                if (custom) {
-                    intersect.push(custom);
-                }
-            }
-
-            if (intersect.length) {
-                for (var index in intersect) {
-                    if (this.compare(data, intersect[index])) continue;
-
-                    return false;
+                        return false;
+                    }
                 }
             }
 
