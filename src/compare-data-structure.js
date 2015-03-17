@@ -90,6 +90,8 @@
 
             if (types.indexOf(dataType) !== -1) return false;
 
+            if (data === null && types.indexOf('null') !== -1) return false;
+
             if (container.exist()) {
                 var intersect = container.get(types);
 

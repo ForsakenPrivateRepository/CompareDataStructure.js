@@ -4,6 +4,7 @@
         ["Alex", "string"],
         [3, "number|string"],
         [{}, "object"],
+        [null, 'null'],
         [
             {
                 "id": 1
