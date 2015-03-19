@@ -11,7 +11,6 @@
     };
 
     function Result(equal, message) {
-
         this.isEqual = function() {
             return equal;
         };
@@ -20,6 +19,17 @@
             return message;
         };
 
+        var path = [];
+
+        this.addPath = function(key) {
+            path.unshift(key);
+
+            return this;
+        };
+
+        this.getPath = function() {
+            return path.join('.');
+        };
     }
 
     Result.CONFIG = 'undefined structure';
@@ -58,7 +68,7 @@
 
                 for (var index in structure["object"]) {
                     if (result = this.compare(data[index], structure["object"][index])) {
-                        return result;
+                        return result.addPath(index);
                     }
                 }
 
@@ -68,7 +78,7 @@
 
                     for (var index in data) {
                         if (result = this.compare(data[index], structure["array"])) {
-                            return result;
+                            return result.addPath(index);
                         }
 
                     }
