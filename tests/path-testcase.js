@@ -42,15 +42,15 @@
                         "books": "Books"
                     }
                 },
+                "Books": {
+                    "array": "Book"
+                },
                 "Book": {
                     "object": {
                         "author": "string",
                         "title": "string",
                         "tags": "Tags"
                     }
-                },
-                "Books": {
-                    "array": "Book"
                 },
                 "Tags": {
                     "array": "string"
