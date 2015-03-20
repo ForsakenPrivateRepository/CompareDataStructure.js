@@ -72,7 +72,7 @@
                     }
                 }
 
-            } else if (structure["array"]) {
+            } else if (structure["array"] && data) {
 
                 if (typeof structure["array"] === "string") {
 
@@ -89,6 +89,9 @@
                 if (structure["set"].indexOf(data) === -1) {
                     return new Result(false, DiffMessage.set(data, structure["set"]))
                 }
+
+            } else {
+                return new Result(false, Result.CONFIG);
             }
 
         },
@@ -106,11 +109,15 @@
                 var intersect = container.get(types);
 
                 if (intersect) {
+                    var diff;
+
                     for (var index in intersect) {
-                        if (this.compare(data, intersect[index])) continue;
+                        if (diff = this.compare(data, intersect[index])) continue;
 
                         return false;
                     }
+
+                    return diff;
                 }
             }
 
