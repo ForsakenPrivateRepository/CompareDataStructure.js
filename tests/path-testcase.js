@@ -25,10 +25,10 @@
                         "title": "Code Complete",
                         "tags": ["programming"]
                     }, {
-                        "author": "Steve McConnell",
+                        "author": "Stoyan Stefanov",
                         "title": "JavaScript Patterns",
                         "tags": null
-                    },
+                    }
                 ]
             },
 
@@ -58,6 +58,41 @@
             },
 
             "path": "books.2.tags"
+        },
+        {
+            "data": {
+                "id": 1,
+                "children": {
+                    "5": {
+                        "id": 5,
+                        "children": {
+                            "17": {
+                                "id": 17,
+                                "children": {
+                                    "32": {
+                                        "id": 32,
+                                        "children": []
+                                    },
+                                    "53": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "structure": "Root",
+            "custom": {
+                "Root": {
+                    "object": {
+                        "id": "number",
+                        "children": "Children"
+                    }
+                },
+                "Children": {
+                    "array": "Root"
+                }
+            },
+            "path": "children.5.children.17.children.53.id"
         }
     ];
 
