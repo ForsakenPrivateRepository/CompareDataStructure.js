@@ -4,4 +4,4 @@ describe('simple', function () {
         assert.equal(true, true);
     });
 });
-// for start use `mocha`
+// for start use `mocha` or `npm test`
