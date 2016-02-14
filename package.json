@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": false,
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/_mocha -c --timeout 1500 ./tests"
   },
   "dependencies": {
     "chai": "~2.1.0",
