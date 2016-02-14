@@ -1,4 +1,4 @@
-(function(window) {
+var Test = (function() {
 
     var DiffMessage = {
         type: function(given, types) {
@@ -148,7 +148,7 @@
 
     };
 
-    window.CDS = {
+    return {
 
         errors: {
             config: Result.CONFIG
@@ -166,5 +166,7 @@
             return result || new Result(true);
         }
     }
+})();
 
-})(window);
+
+module.exports = Test;

@@ -1,0 +1,9 @@
+{
+  "name": "Compare",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "chai": "~2.1.0",
+    "mocha": "~2.4.5"
+  }
+}
